@@ -1,15 +1,10 @@
 <?php
 
+use App\Http\Controllers\messageController;
+use App\Http\Controllers\portfolioController;
 use Illuminate\Support\Facades\Route;
 
-$portfolio = [
 
-    ['title' => 'Proyecto 1'],
-    ['title' => 'Proyecto 2'],
-    ['title' => 'Proyecto 3'],
-    ['title' => 'Proyecto 4'],
-
-];
 /*
 Route::get('/', function () {
     $name = "Kenneth";
@@ -35,7 +30,7 @@ Route::get('/about/', function () {
 Route::view('/', 'home')->name('home');
 Route::view('/about', 'about')->name('about');
 Route::view('/contact', 'contact')->name('contact');
-Route::view('/portfolio', 'portfolio', compact('portfolio'))->name('portfolio');
+Route::get('/portfolio', [portfolioController::class,'index'] )->name('portfolio');
 /*Route::get('/contact/', function () {
     return view('contact');
 })->name('contact');
@@ -75,3 +70,9 @@ esta opcion es adecuada. Ejemplos: Politica de privacidad, terminos y condicione
 Es mejor que el clousure get, por cuestiones de rendimiento.
 */
 
+//Ruta resource-> primer parametro recibe nombre del recurso
+//segundo paramtro -> nombre del controlador resource
+//Route::resource('projects', PortfolioController::class);
+
+//ruta post message controller
+Route::post('/contacto', [messageController::class, 'store'])->name('contacto');
