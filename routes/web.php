@@ -10,7 +10,7 @@ $portfolio = [
     ['title' => 'Proyecto 4'],
 
 ];
-
+/*
 Route::get('/', function () {
     $name = "Kenneth";
     return view('home', compact('name'));
@@ -19,7 +19,7 @@ Route::get('/', function () {
 Route::get('/about/', function () {
     return view('about');
 })->name('about');
-
+*/
 /*Route::get('/portfolio/', function () {
     $portfolio = [
 
@@ -32,12 +32,14 @@ Route::get('/about/', function () {
     return view('portfolio', compact('portfolio'));
 })->name('portfolio');
 */
+Route::view('/', 'home')->name('home');
+Route::view('/about', 'about')->name('about');
+Route::view('/contact', 'contact')->name('contact');
 Route::view('/portfolio', 'portfolio', compact('portfolio'))->name('portfolio');
-
-Route::get('/contact/', function () {
+/*Route::get('/contact/', function () {
     return view('contact');
 })->name('contact');
-
+*/
 /*Route::get('/', function() {
     return "Hola desde inicio";
 })->name('home');
